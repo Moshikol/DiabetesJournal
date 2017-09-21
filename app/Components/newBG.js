@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
-import { Text, View, Button, Alert } from 'react-native';
+import { Text, View, Button, Alert, TextInput } from 'react-native';
 
-class newBG extends Component {
+class NewBG extends Component {
+  
+    constructor(props) {
+        super(props);
+        this.state = { text: '' };
+      }
 
-    btnonPress() {
-        Alert.alert('YOU PUSHEEDD MEE !!!');
-    }
     render() {
         const { textStyle, viewStyle, buttonStyle } = styles;
         return (
 
-            <View style={viewStyle}>
-                <Text style={textStyle}> {this.props.Headertxt} </Text>
-               
+            <View style={{ alignContent:'flex-end'}}>
+                <TextInput
+                    keyboardType={'numeric'}
+                    style={{ height: 40, borderColor: 'gray' ,width: 60}}
+                    onChangeText={(text) => this.setState({ text })}
+                    value={this.state.text}
+                    placeholder ={'הכנס בדיקת סוכר'}
+                    
+
+
+                />
+
 
             </View>
 
@@ -22,7 +33,7 @@ class newBG extends Component {
 }
 
 
-export default Header;
+export default NewBG;
 
 const styles = {
 

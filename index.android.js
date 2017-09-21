@@ -9,15 +9,18 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  TextInput,
   View
 } from 'react-native';
 import Header from './app/Components/header.js';
+import NewBG from './app/Components/newBG.js';
 
 export default class DiabetesJournal extends Component {
   render() {
     return (
       <View >
         <Header Headertxt={'יומן סוכר'}/>
+        <NewBG/>
       </View>
     );
   }
