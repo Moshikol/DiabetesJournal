@@ -19,7 +19,7 @@ export default class DiabetesJournal extends Component {
   render() {
     return (
       <View >
-        <Header Headertxt={'יומן סוכר'}/>
+        <Header Headertxt={'BG Journal'}/>
         <NewBG/>
       </View>
     );
