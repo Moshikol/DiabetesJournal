@@ -1,0 +1,3 @@
+rootProject.name = 'DiabetesJournal'
+
+include ':app'
