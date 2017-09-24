@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, Button, Alert, TextInput } from 'react-native';
+import { Text, View, Alert, TextInput } from 'react-native';
+import SubmitButton from 'react-native-submit-button';
+import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
+
 
 class NewBG extends Component {
 
@@ -12,7 +15,7 @@ class NewBG extends Component {
         const { textStyle, viewStyle, buttonStyle } = styles;
         return (
 
-            <View style={{ alignConten: 'strech' }}>
+            <View style={{ justifyContent: 'flex-start' }}>
                 <TextInput
                     keyboardType={'numeric'}
                     style={{ borderColor: 'red', width: 100, paddingLeft: 10, fontSize: 20 }}
@@ -46,14 +49,12 @@ class NewBG extends Component {
                     value={this.state.text}
                     placeholder={'Enter Meal Description'}
                 />
-                <TouchableHighlight onPress={this._onPressButton}>
-                    <Image
-                        style={styles.button}
-                        source={require('./myButton.png')}
-                    />
-                </TouchableHighlight>
-
-
+                <View style={{ textStyle:'Arial', paddingTop: 10, flex: 1 }}>
+                {/* <SubmitButton /> */}
+                <TextButton titleColor={rgb(43, 206, 129)}  titleStyle={{fontSize: 20} } title='do not touch me'  />
+                </View>
+               
+                   
             </View>
 
         );
