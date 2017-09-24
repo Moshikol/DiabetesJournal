@@ -8,7 +8,7 @@ class NewBG extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { bGVal: '',carbsAm:'',insUn:'' ,desc:''};
+        this.state = { bGVal: '', carbsAm: '', insUn: '', desc: '' };
     }
 
     render() {
@@ -49,13 +49,12 @@ class NewBG extends Component {
                     value={this.state.desc}
                     placeholder={'Enter Meal Description'}
                 />
-                <View style={{borderRadius:10}}>
+                <View style={{ borderRadius: 10 }}>
                     {/* <SubmitButton /> */}
                     <Button
-                        
-                        icon={{ name: 'opacity', size: 32,color:'red' }}
+                        icon={{ name: 'opacity', size: 32, color: 'red' }}
                         buttonStyle={{ backgroundColor: '#2bce81', borderRadius: 40 }}
-                        textStyle={{ textAlign: 'center',fontSize:25 }}
+                        textStyle={{ textAlign: 'center', fontSize: 25 }}
                         title={`Save BG    `}
                     />
                 </View>

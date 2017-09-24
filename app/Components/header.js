@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, Button, Alert } from 'react-native';
+import { Header } from 'react-native-elements';
 
-class Header extends Component {
+class myHeader extends Component {
 
     btnonPress() {
         Alert.alert('YOU PUSHEEDD MEE !!!');
@@ -11,8 +12,12 @@ class Header extends Component {
         return (
 
             <View style={viewStyle}>
-                <Text style={textStyle}> {this.props.Headertxt} </Text>
-               
+
+                <Header
+                    leftComponent={{ icon: 'menu', color: 'grey', size: 30 }}
+                    centerComponent={{ text: this.props.Headertxt, style: styles.textStyle }}
+                    rightComponent={{ icon: 'home', color: 'grey', size: 30 }}
+                />
 
             </View>
 
@@ -22,7 +27,7 @@ class Header extends Component {
 }
 
 
-export default Header;
+export default myHeader;
 
 const styles = {
 
@@ -37,7 +42,9 @@ const styles = {
     },
     textStyle:
     {
-        fontSize: 40
+        justifyContent: 'center',
+        fontSize: 35,
+
     },
 
 };
