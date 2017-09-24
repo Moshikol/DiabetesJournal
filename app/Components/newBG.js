@@ -49,14 +49,14 @@ class NewBG extends Component {
                     value={this.state.desc}
                     placeholder={'Enter Meal Description'}
                 />
-                <View>
+                <View style={{borderRadius:10}}>
                     {/* <SubmitButton /> */}
                     <Button
-                        raised
-                        icon={{ name: 'opacity', size: 32 }}
-                        buttonStyle={{ backgroundColor: '#2bce81', borderRadius: 0 }}
+                        
+                        icon={{ name: 'opacity', size: 32,color:'red' }}
+                        buttonStyle={{ backgroundColor: '#2bce81', borderRadius: 40 }}
                         textStyle={{ textAlign: 'center',fontSize:25 }}
-                        title={`Save BG`}
+                        title={`Save BG    `}
                     />
                 </View>
 
