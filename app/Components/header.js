@@ -4,9 +4,7 @@ import { Header } from 'react-native-elements';
 
 class myHeader extends Component {
 
-    btnonPress() {
-        Alert.alert('YOU PUSHEEDD MEE !!!');
-    }
+  
     render() {
         const { textStyle, viewStyle, buttonStyle } = styles;
         return (
@@ -14,6 +12,7 @@ class myHeader extends Component {
             <View style={viewStyle}>
 
                 <Header
+                    statusBarProps={{ barStyle: 'dark-content' ,backgroundColor: '#aae8ff'}}
                     leftComponent={{ icon: 'menu', color: 'grey', size: 30 }}
                     centerComponent={{ text: this.props.Headertxt, style: styles.textStyle }}
                     rightComponent={{ icon: 'home', color: 'grey', size: 30 }}
