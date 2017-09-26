@@ -8,7 +8,7 @@ class NewBG extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { bGVal: '', carbsAm: '', insUn: '', desc: '' };
+        this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '' };
     }
 
     SaveBG () {
@@ -27,7 +27,7 @@ class NewBG extends Component {
                 <TextInput
                     keyboardType={'numeric'}
                     style={{ borderColor: 'red', width: 100, paddingLeft: 10, fontSize: 20 }}
-                    onChangeText={(text) => this.setState({ text })}
+                    onChangeText={(bgVal) => this.setState({ bgVal })}
                     value={this.state.bGVal}
                     maxLength={3}
                     placeholder={'Enter BG'}
@@ -36,7 +36,7 @@ class NewBG extends Component {
                     keyboardType={'numeric'}
                       maxLength={3}
                     style={{ paddingLeft: 10, fontSize: 20 }}
-                    onChangeText={(text) => this.setState({ text })}
+                    onChangeText={(carbsAm) => this.setState({ carbsAm })}
                     value={this.state.carbsAm}
                     placeholder={'Enter Carbs Amount'}
                 />
@@ -44,7 +44,7 @@ class NewBG extends Component {
                 <TextInput
                     keyboardType={'numeric'}
                     style={{ paddingLeft: 10, fontSize: 20 }}
-                    onChangeText={(text) => this.setState({ text })}
+                    onChangeText={(insUn) => this.setState({ insUn })}
                     value={this.state.insUn}
                     maxLength={3}
                     placeholder={'Enter Insulin Uinits Amount'}
@@ -53,7 +53,7 @@ class NewBG extends Component {
                 <TextInput
                     multiline={true}
                     style={{ borderColor: 'red', width: 300, paddingLeft: 10, fontSize: 20 }}
-                    onChangeText={(text) => this.setState({ text })}
+                    onChangeText={(desc) => this.setState({ desc })}
                     value={this.state.desc}
                     placeholder={'Enter Meal Description'}
                 />
