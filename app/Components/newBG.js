@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View, Alert, TextInput,Linking } from 'react-native';
+import { Text, View, Alert, TextInput, Linking } from 'react-native';
 import SubmitButton from 'react-native-submit-button';
+import Toast from 'react-native-simple-toast';
 import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
-import { Button } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 
 class NewBG extends Component {
 
@@ -11,14 +12,15 @@ class NewBG extends Component {
         this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '' };
     }
 
-    SaveBG () {
-       Linking.openURL('http://www.foodsdictionary.co.il')
+    SaveBG() {
+        Toast.show('Bg Saved Successfully!', Toast.SHORT);
+
     }
 
-    HelpCarbs () {
-       Linking.openURL('http://www.foodsdictionary.co.il')
+    HelpCarbs() {
+        Linking.openURL('http://www.foodsdictionary.co.il')
     }
-    
+
     render() {
         const { textStyle, viewStyle, buttonStyle } = styles;
         return (
@@ -32,21 +34,32 @@ class NewBG extends Component {
                     maxLength={3}
                     placeholder={'Enter BG'}
                 />
-                <TextInput
-                    keyboardType={'numeric'}
-                      maxLength={3}
-                    style={{ paddingLeft: 10, fontSize: 20 }}
-                    onChangeText={(carbsAm) => this.setState({ carbsAm })}
-                    value={this.state.carbsAm}
-                    placeholder={'Enter Carbs Amount'}
-                />
+                <View style={{ flexDirection: 'row' ,justifyContent:'space-between'}}>
+                    <TextInput
+                        keyboardType={'numeric'}
+                        maxLength={3}
+                        style={{ paddingLeft: 10, fontSize: 20 ,width:250}}
+                        onChangeText={(carbsAm) => this.setState({ carbsAm })}
+                        value={this.state.carbsAm}
+                        placeholder={'Enter Carbs Amount'}
+                    />
+                    <Icon
+                    style={{paddingRight:100,paddingTop:12}}
+                        name='help'
+                        color='grey' 
+                        size={30}
+                        onPress={this.HelpCarbs}
+                        />
+
+                  
+                </View>
 
                 <TextInput
                     keyboardType={'numeric'}
                     style={{ paddingLeft: 10, fontSize: 20 }}
                     onChangeText={(insUn) => this.setState({ insUn })}
                     value={this.state.insUn}
-                    maxLength={3}
+                    maxLength={5}
                     placeholder={'Enter Insulin Uinits Amount'}
                 />
 
@@ -57,7 +70,7 @@ class NewBG extends Component {
                     value={this.state.desc}
                     placeholder={'Enter Meal Description'}
                 />
-                <View style={{ borderRadius: 10,marginTop:20 }}>
+                <View style={{ borderRadius: 10, marginTop: 20 }}>
                     {/* <SubmitButton /> */}
                     <Button
                         icon={{ name: 'opacity', size: 32, color: 'red' }}

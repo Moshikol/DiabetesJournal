@@ -11,6 +11,7 @@
 		"react-native": "0.48.3",
 		"react-native-elements": "^0.17.0",
 		"react-native-material-buttons": "^0.5.0",
+		"react-native-simple-toast": "0.0.7",
 		"react-native-submit-button": "^1.0.5",
 		"react-native-vector-icons": "^4.4.0"
 	},
