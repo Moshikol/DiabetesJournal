@@ -11,13 +11,19 @@ class NewBG extends Component {
     constructor(props) {
         super(props);
         this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '' };
-      
+
     }
 
 
 
     SaveBG() {
-        firebase.database.ref().push({'test':'test'});
+        const BG = { bgVal, carbsAm, insUn, desc } = this.state;
+        const {currentUser} = firebase.auth();
+        firebase.database().ref(`/users/${currentUser.uid}/Bgs`)
+        .push({BG});
+       console.log(BG)
+       
+       // firebase.database.ref().push({ 'test': 'test' });
         Toast.show('Bg Saved Successfully!', Toast.SHORT);
 
     }
