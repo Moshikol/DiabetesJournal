@@ -4,15 +4,20 @@ import SubmitButton from 'react-native-submit-button';
 import Toast from 'react-native-simple-toast';
 import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 import { Button, Icon } from 'react-native-elements';
+import firebase from 'firebase';
 
 class NewBG extends Component {
 
     constructor(props) {
         super(props);
         this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '' };
+      
     }
 
+
+
     SaveBG() {
+        firebase.database.ref().push({'test':'test'});
         Toast.show('Bg Saved Successfully!', Toast.SHORT);
 
     }
@@ -34,24 +39,24 @@ class NewBG extends Component {
                     maxLength={3}
                     placeholder={'Enter BG'}
                 />
-                <View style={{ flexDirection: 'row' ,justifyContent:'space-between'}}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                     <TextInput
                         keyboardType={'numeric'}
                         maxLength={3}
-                        style={{ paddingLeft: 10, fontSize: 20 ,width:250}}
+                        style={{ paddingLeft: 10, fontSize: 20, width: 250 }}
                         onChangeText={(carbsAm) => this.setState({ carbsAm })}
                         value={this.state.carbsAm}
                         placeholder={'Enter Carbs Amount'}
                     />
                     <Icon
-                    style={{paddingRight:100,paddingTop:12}}
+                        style={{ paddingRight: 100, paddingTop: 12 }}
                         name='help'
-                        color='grey' 
+                        color='grey'
                         size={30}
-                        onPress={this.HelpCarbs}
-                        />
+                        onPress={this.HelpCarbs.bind(this)}
+                    />
 
-                  
+
                 </View>
 
                 <TextInput
@@ -77,7 +82,7 @@ class NewBG extends Component {
                         buttonStyle={{ backgroundColor: '#2bce81', borderRadius: 40 }}
                         textStyle={{ textAlign: 'center', fontSize: 25 }}
                         title={`Save BG    `}
-                        onPress={this.SaveBG}
+                        onPress={this.SaveBG.bind(this)}
                     />
                 </View>
 
