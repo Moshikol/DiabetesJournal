@@ -10,7 +10,7 @@ class NewBG extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '' };
+        this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc:'' };
 
     }
 
@@ -18,14 +18,18 @@ class NewBG extends Component {
 
     SaveBG() {
         const BG = { bgVal, carbsAm, insUn, desc } = this.state;
-        const {currentUser} = firebase.auth();
-        firebase.database().ref(`/users/${currentUser.uid}/Bgs`)
-        .push({BG});
-       console.log(BG)
-       
-       // firebase.database.ref().push({ 'test': 'test' });
-        Toast.show('Bg Saved Successfully!', Toast.SHORT);
+        const { currentUser } = firebase.auth();
+        firebase.database().ref(`/users/${currentUser.uid}/Bglst`)
+            .push({ BG }).then(this.onSaveSuccess.bind(this));
+        console.log(BG)
 
+        // firebase.database.ref().push({ 'test': 'test' });
+
+
+    }
+    onSaveSuccess() {
+        Toast.show('Bg Saved Successfully!', Toast.SHORT);
+        this.setState({bgVal: '', carbsAm: '', insUn: '', desc: '' });
     }
 
     HelpCarbs() {
@@ -41,7 +45,7 @@ class NewBG extends Component {
                     keyboardType={'numeric'}
                     style={{ borderColor: 'red', width: 100, paddingLeft: 10, fontSize: 20 }}
                     onChangeText={(bgVal) => this.setState({ bgVal })}
-                    value={this.state.bGVal}
+                    value={this.state.bgVal}
                     maxLength={3}
                     placeholder={'Enter BG'}
                 />
