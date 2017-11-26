@@ -20,6 +20,9 @@ import LoginForm from './app/Components/LoginForm.js';
 
 
 export default class DiabetesJournal extends Component {
+  state = {
+    isLoggedIn: false
+  };
   componentWillMount() {
     firebase.initializeApp({
       apiKey: "AIzaSyBgwVLxWeradAHjqw-5rMvLZ2_2NoZ0nKA",
@@ -37,16 +40,35 @@ export default class DiabetesJournal extends Component {
         this.setState({ isLoggedIn: false })
       }
     });
-  }
+  };
+
+  CompnentSelector(self) {
+    console.log("in function!!")
+    if (self.state.isLoggedIn) {
+      return(
+        <View>
+          <Header Headertxt={'BG Journal'} />
+          <NewBG />
+        </View>
+      );
+    }
+    else {
+      return(
+        <View>
+          <LoginForm />
+        </View>
+      );
+    }
+  };
+
+
   render() {
     return (
-      <View >
-        {/* <Header Headertxt={'BG Journal'} />
-        <NewBG /> */}
-        <LoginForm/>
+      <View>
+        {this.CompnentSelector(this)}
       </View>
     );
-  }
+  };
 }
 
 

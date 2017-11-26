@@ -6,7 +6,7 @@ import { Card, CardSection, Input, Spinner } from './common'
 import firebase from 'firebase';
 
 class LoginForm extends Component {
-    state = { email: '', pass: '', error: '', loading: false };
+    state = { email: '', pass: '', error: '', loading: false, isLoggedIn: false };
 
 
 
