@@ -7,6 +7,7 @@ import { Button, Icon } from 'react-native-elements';
 import firebase from 'firebase';
 import ImagePicker from 'react-native-image-picker';
 import RNFetchBlob from 'react-native-fetch-blob'
+import moment from 'moment';
 
 class NewBG extends Component {
 
@@ -17,7 +18,8 @@ class NewBG extends Component {
     }
 
     SaveBG() {
-        const BG = { bgVal, carbsAm, insUn, desc } = this.state;
+        //save to db 
+        const BG = { bgVal, carbsAm, insUn, desc, imgsrc } = this.state;
         const { currentUser } = firebase.auth();
         firebase.database().ref(`/users/${currentUser.uid}/Bglst`)
             .push({ BG }).then(this.onSaveSuccess.bind(this));
@@ -25,7 +27,7 @@ class NewBG extends Component {
 
     onSaveSuccess() {
         Toast.show('Bg Saved Successfully!', Toast.SHORT);
-        this.setState({ bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc: '' });
+        this.setState({ bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc: '', actloading: null });
     }
 
     HelpCarbs() {
@@ -49,8 +51,9 @@ class NewBG extends Component {
                 this.setState({ actloading: true });
             else
                 this.setState({ actloading: false });
-
-            const imageRef = firebase.storage().ref(currentUser.uid).child("Bg.jpg") //check here what to do with the name
+            let date = moment.unix(moment.now());
+            console.log(date);
+            const imageRef = firebase.storage().ref(currentUser.uid).child(`Bg${date}.jpg`) //check here what to do with the name
             let mime = 'image/jpg'
             fs.readFile(imagePath, 'base64')
                 .then((data) => {
