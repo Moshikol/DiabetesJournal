@@ -21,7 +21,7 @@ class NewBG extends Component {
         const { currentUser } = firebase.auth();
         firebase.database().ref(`/users/${currentUser.uid}/Bglst`)
             .push({ BG }).then(this.onSaveSuccess.bind(this));
-        console.log(BG)
+       // console.log(BG)
 
         // firebase.database.ref().push({ 'test': 'test' });
 

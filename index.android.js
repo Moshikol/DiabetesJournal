@@ -16,6 +16,8 @@ import firebase from 'firebase';
 import Header from './app/Components/header.js';
 import NewBG from './app/Components/newBG.js';
 import LoginForm from './app/Components/LoginForm.js';
+import Bglst from './app/Components/bgLst.js';
+
 
 
 
@@ -48,7 +50,7 @@ export default class DiabetesJournal extends Component {
       return(
         <View>
           <Header Headertxt={'BG Journal'} />
-          <NewBG />
+          <Bglst />
         </View>
       );
     }
