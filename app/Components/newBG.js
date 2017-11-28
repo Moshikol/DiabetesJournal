@@ -10,30 +10,29 @@ class NewBG extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc:'' };
+        this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc: '' };
 
     }
-
-
 
     SaveBG() {
         const BG = { bgVal, carbsAm, insUn, desc } = this.state;
         const { currentUser } = firebase.auth();
         firebase.database().ref(`/users/${currentUser.uid}/Bglst`)
             .push({ BG }).then(this.onSaveSuccess.bind(this));
-       // console.log(BG)
-
-        // firebase.database.ref().push({ 'test': 'test' });
-
-
     }
+
     onSaveSuccess() {
         Toast.show('Bg Saved Successfully!', Toast.SHORT);
-        this.setState({bgVal: '', carbsAm: '', insUn: '', desc: '' });
+        this.setState({ bgVal: '', carbsAm: '', insUn: '', desc: '',imgsrc: '' });
     }
 
     HelpCarbs() {
         Linking.openURL('http://www.foodsdictionary.co.il')
+    }
+
+
+    TakePic() {
+
     }
 
     render() {
@@ -59,11 +58,18 @@ class NewBG extends Component {
                         placeholder={'Enter Carbs Amount'}
                     />
                     <Icon
-                        style={{ paddingRight: 100, paddingTop: 12 }}
+                        style={{ paddingRight: 5, paddingTop: 12 }}
                         name='help'
                         color='grey'
                         size={30}
                         onPress={this.HelpCarbs.bind(this)}
+                    />
+                    <Icon
+                        style={{ paddingRight: 80, paddingTop: 12 }}
+                        name='camera-alt'
+                        color='#00d311'
+                        size={30}
+                        onPress={this.TakePic.bind(this)}
                     />
 
 
@@ -85,6 +91,7 @@ class NewBG extends Component {
                     value={this.state.desc}
                     placeholder={'Enter Meal Description'}
                 />
+
                 <View style={{ borderRadius: 10, marginTop: 20 }}>
                     {/* <SubmitButton /> */}
                     <Button

@@ -45,12 +45,12 @@ export default class DiabetesJournal extends Component {
   };
 
   CompnentSelector(self) {
-    console.log("in function!!")
+    
     if (self.state.isLoggedIn) {
       return(
         <View>
           <Header Headertxt={'BG Journal'} />
-          <Bglst />
+          <NewBG />
         </View>
       );
     }
