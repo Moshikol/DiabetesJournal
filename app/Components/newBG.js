@@ -12,7 +12,7 @@ class NewBG extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc: '', actloading: false, dp: null };
+        this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc: '', actloading: null };
 
     }
 
@@ -34,18 +34,6 @@ class NewBG extends Component {
 
 
     TakePic() {
-        var options = {
-            title: 'Select Avatar',
-            customButtons: [
-                { name: 'fb', title: 'Choose Photo from Facebook' },
-            ],
-            storageOptions: {
-                skipBackup: true,
-                path: 'images'
-            }
-        };
-
-        this.setState({ actloading: true });
         const { currentUser } = firebase.auth();
         const Blob = RNFetchBlob.polyfill.Blob;
         const fs = RNFetchBlob.fs;
@@ -53,10 +41,14 @@ class NewBG extends Component {
         window.Blob = Blob;
 
 
-        ImagePicker.showImagePicker(options, (image) => {
+        ImagePicker.showImagePicker((image) => {
             const imagePath = image.path
             console.log(image.path);
             let uploadBlob = null
+            if (imagePath)
+                this.setState({ actloading: true });
+            else
+                this.setState({ actloading: false });
 
             const imageRef = firebase.storage().ref(currentUser.uid).child("Bg.jpg") //check here what to do with the name
             let mime = 'image/jpg'
@@ -77,11 +69,32 @@ class NewBG extends Component {
                     this.setState({ imgsrc: url.downloadURL });
                     console.log('imgsrc:');
                     console.log(this.state.imgsrc);
-
+                    this.setState({ actloading: false });
                 });
 
         });
 
+    }
+
+    ShowImage(self) {
+        if (!(self.state.actloading)) {
+            return (
+                <View style={{ paddingRight: 0, paddingTop: 2 }}>
+                    <Image
+                        style={{ width: 40, height: 40, marginRight: 6, marginBottom: 4, marginTop: 2.5, marginLeft: 2, borderRadius: 100 }}
+                        source={{ uri: self.state.imgsrc }}>
+                    </Image>
+                </View>
+            );
+        }
+        else {
+            return (
+                <View style={{ paddingRight: 10, paddingTop: 16 }}>
+                    <ActivityIndicator animating={self.state.loading} />
+                </View>
+            );
+
+        }
     }
 
     render() {
@@ -97,6 +110,7 @@ class NewBG extends Component {
                     maxLength={3}
                     placeholder={'Enter BG'}
                 />
+                {/* CarbsSection image link and take photo */}
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                     <TextInput
                         keyboardType={'numeric'}
@@ -106,21 +120,25 @@ class NewBG extends Component {
                         value={this.state.carbsAm}
                         placeholder={'Enter Carbs Amount'}
                     />
+                    {/*  btn Help Carbs link */}
                     <Icon
-                        style={{ paddingRight: 5, paddingTop: 12 }}
+                        style={{ paddingRight: 1, paddingTop: 12 }}
                         name='help'
                         color='grey'
                         size={30}
                         onPress={this.HelpCarbs.bind(this)}
                     />
+                    {/* TakePicture btn */}
                     <Icon
-                        style={{ paddingRight: 80, paddingTop: 12 }}
+                        style={{ paddingRight: 1, paddingTop: 12 }}
                         name='camera-alt'
-                        color='#00d311'
+                        color={this.state.imgsrc ? '#00d311' : 'grey'}
                         size={30}
                         onPress={this.TakePic.bind(this)}
                     />
+                    {/* Image That Uploaded */}
 
+                    {this.ShowImage(this)}
 
                 </View>
 
@@ -152,8 +170,6 @@ class NewBG extends Component {
                     />
                 </View>
 
-                <Image source={this.state.imgsrc}>
-                </Image>
 
             </View >
 
