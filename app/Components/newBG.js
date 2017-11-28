@@ -16,48 +16,53 @@ class NewBG extends Component {
         this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc: '', actloading: null };
 
     }
-
+  
+    //#region Functions
+    //Save to db 
     SaveBG() {
-        //save to db 
+
         const BG = { bgVal, carbsAm, insUn, desc, imgsrc } = this.state;
         const { currentUser } = firebase.auth();
         firebase.database().ref(`/users/${currentUser.uid}/Bglst`)
             .push({ BG }).then(this.onSaveSuccess.bind(this));
     }
-
+    //Gets Toast and reset state
     onSaveSuccess() {
         Toast.show('Bg Saved Successfully!', Toast.SHORT);
         this.setState({ bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc: '', actloading: null });
     }
-
+    //Opens link Carbs Help
     HelpCarbs() {
         Linking.openURL('http://www.foodsdictionary.co.il')
     }
 
-
+    //Open Camera/Gallery and upload picture to FireBase
     TakePic() {
+        //#region declerations
         const { currentUser } = firebase.auth();
         const Blob = RNFetchBlob.polyfill.Blob;
         const fs = RNFetchBlob.fs;
         window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
         window.Blob = Blob;
+        //#endregion
 
 
         ImagePicker.showImagePicker((image) => {
+            //#region declerations
             const imagePath = image.path
-            console.log(image.path);
             let uploadBlob = null
+            let date = moment.unix(moment.now());
+            const imageRef = firebase.storage().ref(currentUser.uid).child(`Bg${date}.jpg`) //check here what to do with the name
+            let mime = 'image/jpg'
+            //#endregion
+
             if (imagePath)
                 this.setState({ actloading: true });
             else
                 this.setState({ actloading: false });
-            let date = moment.unix(moment.now());
-            console.log(date);
-            const imageRef = firebase.storage().ref(currentUser.uid).child(`Bg${date}.jpg`) //check here what to do with the name
-            let mime = 'image/jpg'
+
             fs.readFile(imagePath, 'base64')
                 .then((data) => {
-                    //console.log(data);
                     return Blob.build(data, { type: `${mime};BASE64` })
                 })
                 .then((blob) => {
@@ -65,18 +70,9 @@ class NewBG extends Component {
                     return imageRef.put(blob, { contentType: mime })
                 })
                 .then((url) => {
-
-                    console.log('url :' + url);
-
-
-                    this.setState({ imgsrc: url.downloadURL });
-                    console.log('imgsrc:');
-                    console.log(this.state.imgsrc);
-                    this.setState({ actloading: false });
+                    this.setState({ imgsrc: url.downloadURL, actloading: false });
                 });
-
         });
-
     }
 
     ShowImage(self) {
@@ -99,7 +95,8 @@ class NewBG extends Component {
 
         }
     }
-
+    //#endregion
+    
     render() {
         const { textStyle, viewStyle, buttonStyle } = styles;
         return (
@@ -180,10 +177,8 @@ class NewBG extends Component {
     }
 
 }
-
-
 export default NewBG;
-
+//#region Styles
 const styles = {
 
     viewStyle:
@@ -208,3 +203,4 @@ const styles = {
 
 
 };
+//#endregion
