@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import { Text, View, Alert, TextInput, Linking } from 'react-native';
+import { Text, View, Alert, TextInput, Linking, Image, ActivityIndicator } from 'react-native';
 import SubmitButton from 'react-native-submit-button';
 import Toast from 'react-native-simple-toast';
 import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 import { Button, Icon } from 'react-native-elements';
 import firebase from 'firebase';
+import ImagePicker from 'react-native-image-picker';
+import RNFetchBlob from 'react-native-fetch-blob'
 
 class NewBG extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc: '' };
+        this.state = { bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc: '', actloading: false, dp: null };
 
     }
 
@@ -23,7 +25,7 @@ class NewBG extends Component {
 
     onSaveSuccess() {
         Toast.show('Bg Saved Successfully!', Toast.SHORT);
-        this.setState({ bgVal: '', carbsAm: '', insUn: '', desc: '',imgsrc: '' });
+        this.setState({ bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc: '' });
     }
 
     HelpCarbs() {
@@ -32,6 +34,53 @@ class NewBG extends Component {
 
 
     TakePic() {
+        var options = {
+            title: 'Select Avatar',
+            customButtons: [
+                { name: 'fb', title: 'Choose Photo from Facebook' },
+            ],
+            storageOptions: {
+                skipBackup: true,
+                path: 'images'
+            }
+        };
+
+        this.setState({ actloading: true });
+        const { currentUser } = firebase.auth();
+        const Blob = RNFetchBlob.polyfill.Blob;
+        const fs = RNFetchBlob.fs;
+        window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
+        window.Blob = Blob;
+
+
+        ImagePicker.showImagePicker(options, (image) => {
+            const imagePath = image.path
+            console.log(image.path);
+            let uploadBlob = null
+
+            const imageRef = firebase.storage().ref(currentUser.uid).child("Bg.jpg") //check here what to do with the name
+            let mime = 'image/jpg'
+            fs.readFile(imagePath, 'base64')
+                .then((data) => {
+                    //console.log(data);
+                    return Blob.build(data, { type: `${mime};BASE64` })
+                })
+                .then((blob) => {
+                    uploadBlob = blob
+                    return imageRef.put(blob, { contentType: mime })
+                })
+                .then((url) => {
+
+                    console.log('url :' + url);
+
+
+                    this.setState({ imgsrc: url.downloadURL });
+                    console.log('imgsrc:');
+                    console.log(this.state.imgsrc);
+
+                });
+
+        });
 
     }
 
@@ -103,8 +152,10 @@ class NewBG extends Component {
                     />
                 </View>
 
+                <Image source={this.state.imgsrc}>
+                </Image>
 
-            </View>
+            </View >
 
         );
     }
