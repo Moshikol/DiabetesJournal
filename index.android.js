@@ -1,9 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
+//#region Imports
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -17,7 +12,7 @@ import Header from './app/Components/header.js';
 import NewBG from './app/Components/newBG.js';
 import LoginForm from './app/Components/LoginForm.js';
 import Bglst from './app/Components/bgLst.js';
-
+//#endregion
 
 
 
@@ -33,7 +28,7 @@ export default class DiabetesJournal extends Component {
       projectId: "diabetesjournal-405cf",
       storageBucket: "diabetesjournal-405cf.appspot.com",
       messagingSenderId: "750281915622"
-    })
+    });
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ isLoggedIn: true });

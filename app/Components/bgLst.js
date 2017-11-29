@@ -13,33 +13,71 @@ class BgList extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { bglst: [] };
-
+        this.state = {
+            dataSource: new ListView.DataSource({
+                rowHasChanged: (row1, row2) => row1 !== row2,
+            })
+        };
+        const { currentUser } = firebase.auth();
+        this.itemsRef = firebase.database().ref(`/users/${currentUser.uid}/Bglst`);
 
 
     }
 
+    componentDidMount() {
+        this.setState({ dataSource: this.state.dataSource.cloneWithRows([{ title: 'Pizza' }]) });
+        this.listenForItems(this.itemsRef);
+    }
     componentWillMount() {
+        // const { currentUser } = firebase.auth();
+        // firebase.database().ref(`/users/${currentUser.uid}/Bglst`)
+        //     .on('value', snap => {
+        //         var items = [];
+        //         snap.forEach((child) => {
+        //             items.push({
+        //                 title: child.val().title,
+        //                 _key: child.key
+        //             });
+        //         });
+
+        //         this.setState({
+        //             dataSource: this.state.dataSource.cloneWithRows(items)
+        //         });
+
+
+        //#regiontest
+        // this.state.bglst = snap.val();
+        // console.log('snap.val()');
+        // console.log(snap.val());
+        // const ds = new ListView.DataSource({
+        //     rowHasChanged: (r1, r2) => r1 !== r2
+        // });
+        // this.dataSource = ds.cloneWithRows(this.state.bglst);
+        // // console.log(this.dataSource);
+        //#endregion
+        //  });
+
+
+        //console.log(this.state.bglst)
+    }
+
+    listenForItems(itemsRef) {
+
         const { currentUser } = firebase.auth();
         firebase.database().ref(`/users/${currentUser.uid}/Bglst`)
             .on('value', snap => {
-
-                this.state.bglst = snap.val();
-                console.log(snap.val());
-                const ds = new ListView.DataSource({
-                    rowHasChanged: (r1, r2) => r1 !== r2
+                var items = [];
+                snap.forEach((child) => {
+                    items.push({
+                        title: child.val().title,
+                        _key: child.key
+                    });
                 });
-                this.dataSource = ds.cloneWithRows(this.state.bglst);
-                console.log(this.dataSource);
+
+                //  this.setState({
+                //     dataSource: this.state.dataSource.cloneWithRows(items)
+                //  });
             });
-
-        console.log(this.state.bglst)
-    }
-
-
-
-    HelpCarbs() {
-        Linking.openURL('http://www.foodsdictionary.co.il')
     }
     ShowLst(self) {
         const bgs = _.map(this.state.bglst, (val, uid) => {
@@ -51,18 +89,38 @@ class BgList extends Component {
         return { bgs };
     };
 
+    renderBG(self) {
+        console.log("self.state.bglst");
+        console.log(self.state.bglst);
+        // return <Bglistitem BG={BG} />
+        if (self.state.bglst) {
+            return (
 
-    renderBG({ BG }) {
-        console.log(BG)
-        return <Bglistitem BG={BG} />
+                self.state.bglst.map(bg => {
+                    console.log(bg);
+                    <Bglistitem BG={bg} />
+                }
+                ));
+        }
     }
+
+    _renderItem(item) {
+        return (
+            <ListItem item={item} />
+        );
+    }
+
 
     render() {
         return (
-            <ListView
-                enableEmptySections
-                dataSource={this.dataSource}
-                renderRow={this.renderBG} />
+            <View>
+                <Text>zubi obi</Text>
+                <ListView
+                    datasource={this.state.dataSource}
+                    renderRow={this._renderItem.bind(this)}
+                    style={styles.listview} />
+            </View>
+
         );
 
     }

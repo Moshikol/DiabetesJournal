@@ -1,3 +1,4 @@
+//#region imports
 import React, { Component } from 'react';
 import { Text, View, Alert, TextInput, Linking, Image, ActivityIndicator } from 'react-native';
 import SubmitButton from 'react-native-submit-button';
@@ -8,6 +9,7 @@ import firebase from 'firebase';
 import ImagePicker from 'react-native-image-picker';
 import RNFetchBlob from 'react-native-fetch-blob'
 import moment from 'moment';
+//#endregion
 
 class NewBG extends Component {
 
