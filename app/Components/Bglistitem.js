@@ -3,31 +3,39 @@ import { View } from 'react-native';
 import { CardSection } from './common';
 
 class Bglistitem extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      bgVal: this.props.BG.bgVal,
+      carbsAm: this.props.BG.carbsAm,
+      insUn: this.props.BG.insUn,
+      desc: this.props.BG.desc,
+      imgsrc: this.props.BG.imgsrc
+    };
+
+  }
   render() {
-    const { bgVal } = this.props.BG;
-    const { carbsAm } = this.props.BG;
-    const { desc } = this.props.BG;
-    const { insUn } = this.props.BG;
     return (
       <View>
         <CardSection>
           <Text>
-            BG value: {bgVal}
+            BG value: {this.state.bgVal}
           </Text>
         </CardSection>
         <CardSection>
           <Text>
-            Amount of carbs: {carbsAm}
+            Amount of carbs: {this.state.carbsAm}
           </Text>
         </CardSection>
         <CardSection>
           <Text>
-            Description of the meal: {desc}
+            Description of the meal: {this.state.desc}
           </Text>
         </CardSection>
         <CardSection>
           <Text>
-            Number of insulin Units: {insUn}
+            Number of insulin Units: {this.state.insUn}
           </Text>
         </CardSection>
       </View>

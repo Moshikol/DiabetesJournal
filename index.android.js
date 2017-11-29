@@ -45,7 +45,7 @@ export default class DiabetesJournal extends Component {
       return(
         <View>
           <Header Headertxt={'BG Journal'} />
-          <NewBG />
+          <Bglst />
         </View>
       );
     }
