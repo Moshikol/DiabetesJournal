@@ -6,8 +6,8 @@ class Bglistitem extends Component {
 
   constructor(props) {
     super(props);
-    console.log('props');
-    console.log(this.props);
+    //   console.log('props');
+    //  console.log(this.props);
     this.state = {
       bgVal: this.props.BG.bgVal,
       carbsAm: this.props.BG.carbsAm,
@@ -43,7 +43,7 @@ class Bglistitem extends Component {
           </CardSection>
           <CardSection>
             <Image source={{ uri: this.state.imgsrc }}
-              style={{ width: 150, height:150, margin:1, borderRadius: 10 }} />
+              style={{ width: 150, height: 150, margin: 1, borderRadius: 10 }} />
           </CardSection>
         </Card>
       </View>
