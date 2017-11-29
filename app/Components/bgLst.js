@@ -70,8 +70,8 @@ class BgList extends Component {
     }
 
     renderItem(item) {
-       // console.log('item');
-       // console.log(item);
+        // console.log('item');
+        // console.log(item);
         return (
             <View>
                 <Bglistitem BG={item} />
@@ -83,8 +83,10 @@ class BgList extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.viewStyle}>
                 <ListView
+                    enableEmptySections
+                    scrollEnabled={true}
                     dataSource={this.state.dataSource}
                     renderRow={this.renderItem.bind(this)}
                     style={styles.listview} />
@@ -101,12 +103,18 @@ const styles = {
 
     viewStyle:
     {
-        backgroundColor: '#ccffd1',
+       
         justifyContent: 'center',
         alignItems: 'center',
-        height: 70,
-        elevation: 5,
-        position: 'relative'
+        elevation: 1
+
+
+
+
+    },
+    listview:
+    {
+        height: 630
     },
     textStyle:
     {
