@@ -6,7 +6,7 @@ import Toast from 'react-native-simple-toast';
 import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 import { Button, Icon } from 'react-native-elements';
 import firebase from 'firebase';
-import Bglistitem from './Bglistitem.js'
+import Bglistitem from './Bglistitem.js';
 
 
 class BgList extends Component {
@@ -27,9 +27,9 @@ class BgList extends Component {
     getitems(itemsRef) {
         itemsRef.on('value', snap => {
             let items = [];
-            //  console.log(snap.val());
+            //  //console.log(snap.val());
             snap.forEach((bg) => {
-                //  console.log(bg);
+                //  //console.log(bg);
                 items.push({
                     bgVal: bg.val().BG.bgVal,
                     carbsAm: bg.val().BG.carbsAm,
@@ -39,8 +39,8 @@ class BgList extends Component {
                     _key: bg.key
                 })
             });
-            // console.log('items');
-            console.log(items);
+            // //console.log('items');
+            //console.log(items);
             this.setState({ dataSource: this.state.dataSource.cloneWithRows(items) });
         });
     }
@@ -55,14 +55,14 @@ class BgList extends Component {
 
 
     renderBG(self) {
-        console.log("self.state.bglst");
-        console.log(self.state.bglst);
+        //console.log("self.state.bglst");
+        //console.log(self.state.bglst);
         // return <Bglistitem BG={BG} />
         if (self.state.bglst) {
             return (
 
                 self.state.bglst.map(bg => {
-                    console.log(bg);
+                    //console.log(bg);
                     <Bglistitem BG={bg} />
                 }
                 ));
@@ -70,9 +70,11 @@ class BgList extends Component {
     }
 
     renderItem(item) {
+       // console.log('item');
+       // console.log(item);
         return (
             <View>
-                {/* <Bglistitem BG={item} /> */}
+                <Bglistitem BG={item} />
             </View>
 
         );
