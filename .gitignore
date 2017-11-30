@@ -29,7 +29,6 @@ build/
 .gradle
 local.properties
 *.iml
-gradle.properties
 
 # node.js
 #
@@ -52,6 +51,3 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
-
-android/gradle.properties
-android/gradle.properties
