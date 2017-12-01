@@ -1,4 +1,10 @@
 {
   "name": "DiabetesJournal",
-  "displayName": "DiabetesJournal"
+  "displayName": "DiabetesJournal",
+  "expo": {
+    "slug": "DiabetesJournal",
+    "name": "DiabetesJournal",
+    "sdkVersion": "21.0.0",
+    "entryPoint": "d:\\Projects\\ReactProjects\\DiabetesJournal\\.vscode\\exponentIndex.js"
+  }
 }

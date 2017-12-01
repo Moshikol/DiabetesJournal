@@ -12,6 +12,7 @@ import Header from './app/Components/header.js';
 import NewBG from './app/Components/newBG.js';
 import LoginForm from './app/Components/LoginForm.js';
 import Bglst from './app/Components/bgLst.js';
+import Router from './app/Router';
 //#endregion
 
 
@@ -61,8 +62,8 @@ export default class DiabetesJournal extends Component {
 
   render() {
     return (
-      <View>
-        {this.CompnentSelector(this)}
+      <View style={{flex: 1}}>
+       <Router />
       </View>
     );
   };
