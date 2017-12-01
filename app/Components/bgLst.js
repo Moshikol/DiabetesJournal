@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { Text, View, Alert, TextInput, Linking, ListView } from 'react-native';
 import SubmitButton from 'react-native-submit-button';
 import Toast from 'react-native-simple-toast';
+import ActionButton from 'react-native-action-button';
+import { Actions } from 'react-native-router-flux';
 import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 import { Button, Icon } from 'react-native-elements';
 import firebase from 'firebase';
@@ -27,9 +29,7 @@ class BgList extends Component {
     getitems(itemsRef) {
         itemsRef.on('value', snap => {
             let items = [];
-            //  //console.log(snap.val());
             snap.forEach((bg) => {
-                //  //console.log(bg);
                 items.push({
                     bgVal: bg.val().BG.bgVal,
                     carbsAm: bg.val().BG.carbsAm,
@@ -39,8 +39,7 @@ class BgList extends Component {
                     _key: bg.key
                 })
             });
-            // //console.log('items');
-            //console.log(items);
+
             this.setState({ dataSource: this.state.dataSource.cloneWithRows(items) });
         });
     }
@@ -52,26 +51,8 @@ class BgList extends Component {
         this.getitems(this.itemsRef);
     }
 
-
-
-    renderBG(self) {
-        //console.log("self.state.bglst");
-        //console.log(self.state.bglst);
-        // return <Bglistitem BG={BG} />
-        if (self.state.bglst) {
-            return (
-
-                self.state.bglst.map(bg => {
-                    //console.log(bg);
-                    <Bglistitem BG={bg} />
-                }
-                ));
-        }
-    }
-
     renderItem(item) {
-        // console.log('item');
-        // console.log(item);
+
         return (
             <View>
                 <Bglistitem BG={item} />
@@ -90,6 +71,9 @@ class BgList extends Component {
                     dataSource={this.state.dataSource}
                     renderRow={this.renderItem.bind(this)}
                     style={styles.listview} />
+                <ActionButton buttonColor='#9b59b6' title="New Task" onPress={Actions.newbg} />
+
+
             </View>
 
         );
@@ -102,30 +86,25 @@ export default BgList;
 const styles = {
 
     viewStyle:
-    {
-       
-        justifyContent: 'center',
-        alignItems: 'center',
-        elevation: 1
-
-
-
-
-    },
+        {
+            justifyContent: 'center',
+            alignItems: 'center',
+            elevation: 1
+        },
     listview:
-    {
-        height: 630
-    },
+        {
+            height: 630
+        },
     textStyle:
-    {
-        fontSize: 40
-    },
+        {
+            fontSize: 40
+        },
 
     buttonStyle:
-    {
+        {
 
-        alignItems: 'left',
-    },
+            alignItems: 'left',
+        },
 
 
 };

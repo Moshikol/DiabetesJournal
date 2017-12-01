@@ -6,6 +6,7 @@ import Toast from 'react-native-simple-toast';
 import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 import { Button, Icon } from 'react-native-elements';
 import firebase from 'firebase';
+import {Actions} from'react-native-router-flux';
 import ImagePicker from 'react-native-image-picker';
 import RNFetchBlob from 'react-native-fetch-blob'
 import moment from 'moment';
@@ -32,6 +33,8 @@ class NewBG extends Component {
     onSaveSuccess() {
         Toast.show('Bg Saved Successfully!', Toast.SHORT);
         this.setState({ bgVal: '', carbsAm: '', insUn: '', desc: '', imgsrc: '', actloading: null });
+        Actions.bglst();
+
     }
     //Opens link Carbs Help
     HelpCarbs() {

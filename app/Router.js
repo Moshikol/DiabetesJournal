@@ -6,14 +6,14 @@ import NewBGFrom from './Components/newBG';
 
 const RouterComponent = () => {
     return (
-        <Router sceneStyle={{ paddingTop: 10 }}>
+        <Router >
             <Stack key="root">
                 <Stack key="auth" hideNavBar>
                     <Scene key="login" hideNavBar={false} component={LoginForm} title="Please Login" initial />
                 </Stack>
                 <Stack key="BG" hideNavBar>
-                    <Scene key="bglst" hideNavBar={false} component={BglstForm} title="BG Jouranl" />
-                    <Scene key="newbg" hideNavBar={false} component={NewBGFrom} title="Add New BG" initial />
+                    <Scene key="bglst" hideNavBar={false} component={BglstForm} title="BG Jouranl"  />
+                    <Scene key="newbg" hideNavBar={false} component={NewBGFrom} title="Add New BG"  />
                 </Stack>
             </Stack>
 

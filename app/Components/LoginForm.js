@@ -36,7 +36,7 @@ class LoginForm extends Component {
             email: '',
             pass: ''
         });
-       Actions.BG();
+        Actions.BG();
     }
 
     onRegister() {
