@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import Toast from 'react-native-simple-toast';
+import {Actions} from'react-native-router-flux';
 import { Card, CardSection, Input, Spinner } from './common'
 import firebase from 'firebase';
 
@@ -35,6 +36,7 @@ class LoginForm extends Component {
             email: '',
             pass: ''
         });
+       Actions.BG();
     }
 
     onRegister() {

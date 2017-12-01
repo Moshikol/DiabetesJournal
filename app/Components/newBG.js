@@ -40,6 +40,8 @@ class NewBG extends Component {
 
     //Open Camera/Gallery and upload picture to FireBase
     TakePic() {
+
+        
         //#region declerations
         const { currentUser } = firebase.auth();
         const Blob = RNFetchBlob.polyfill.Blob;
@@ -52,6 +54,7 @@ class NewBG extends Component {
         ImagePicker.showImagePicker((image) => {
             //#region declerations
             const imagePath = image.path
+            
             let uploadBlob = null
             let date = moment.unix(moment.now());
             const imageRef = firebase.storage().ref(currentUser.uid).child(`Bg${date}.jpg`) //check here what to do with the name
