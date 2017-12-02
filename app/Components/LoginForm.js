@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import Toast from 'react-native-simple-toast';
-import {Actions} from'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Input, Spinner } from './common'
 import firebase from 'firebase';
 
@@ -19,13 +19,13 @@ class LoginForm extends Component {
             .then(this.onLoginSuccess.bind(this))
             .catch(() => {
                 firebase.auth().createUserWithEmailAndPassword(email, pass)
-                    .then(this.onRegister .bind(this))
+                    .then(this.onRegister.bind(this))
                     .catch(this.onLoginFailed.bind(this))
             });
     }
 
     onLoginFailed() {
-        
+
         this.setState({ error: 'Password Wrong', loading: false });
     }
     onLoginSuccess() {
@@ -71,6 +71,7 @@ class LoginForm extends Component {
             <Card>
                 <CardSection>
                     <Input
+                        style={{ fontFamily: 'monospace' }}
                         label='Email'
                         keytype='email-address'
                         placeHolder='Google@gmail.com'
@@ -80,7 +81,7 @@ class LoginForm extends Component {
                 <CardSection>
                     <Input
                         securetxt
-                        label='Password'
+
                         placeHolder='password'
                         onChangeText={(pass) => this.setState({ pass })}
                         value={this.state.pass} />
