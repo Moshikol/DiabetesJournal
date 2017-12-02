@@ -94,6 +94,7 @@ const styles = {
 
     container: {
         flex: 1,
+        
     },
     markWrap: {
         flex: 1,
@@ -169,6 +170,8 @@ const styles = {
         },
     listview:
         {
+            borderRadius: 5,
+            marginBottom:50,
             height: 630
         },
     textStyle:

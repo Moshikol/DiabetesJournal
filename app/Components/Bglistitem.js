@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
-import { CardSection, Card } from './common';
+//import { CardAction, Card } from './common';
+import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards'
 
 class Bglistitem extends Component {
 
@@ -19,37 +20,17 @@ class Bglistitem extends Component {
   }
   render() {
     return (
-      <View style={{ borderRadius:10}}>
-        <Card style={{ borderRadius:10}}>
-          <CardSection style={{ borderTopLeftRadius:30,borderTopRightRadius:30}}>
-            <Text>
-              BG value: {this.state.bgVal}
-            </Text>
-          </CardSection>
-          <CardSection>
-            <Text>
-              Amount of carbs: {this.state.carbsAm}
-            </Text>
-          </CardSection>
-          <CardSection>
-            <Text>
-              Description of the meal: {this.state.desc}
-            </Text>
-          </CardSection>
-          <CardSection>
-            <Text>
-              Number of insulin Units: {this.state.insUn}
-            </Text>
-          </CardSection>
-          <CardSection style={{borderBottomLeftRadius:30,borderBottomRightRadius:30}}>
-            <Image source={{ uri: this.state.imgsrc }}
-              style={{ width: 150, height: 150, margin: 1, borderRadius: 10 }} />
-          </CardSection>
-        </Card>
-      </View>
+
+      <Card style={{ borderRadius: 5 }}>
+        <CardImage source={{ uri: this.props.BG.imgsrc }} />
+        <CardContent style={{ borderBottomWidth: 0.5, borderColor: 'grey' }} text={`BG value: ${this.state.bgVal}`} />
+        <CardContent style={{ borderBottomWidth: 0.5, borderColor: 'grey' }} text={`Amount of carbs: ${this.state.carbsAm}`} />
+        <CardContent style={{ borderBottomWidth: 0.5, borderColor: 'grey' }} text={`Number of insulin Units: ${this.state.insUn}`} />
+        <CardContent style={{ borderBottomWidth: 0.5, borderColor: 'grey' }} text={`Description of the meal: ${this.state.desc}`} />
+      </Card >
     );
   }
-};
+}
 
 
 
