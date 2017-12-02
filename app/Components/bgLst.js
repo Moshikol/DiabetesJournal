@@ -71,7 +71,7 @@ class BgList extends Component {
                     dataSource={this.state.dataSource}
                     renderRow={this.renderItem.bind(this)}
                     style={styles.listview} />
-                <ActionButton buttonColor='#40A8FF' position="right" title="New Task" onPress={Actions.newbg} />
+                <ActionButton buttonColor='#4FEB49' position="right" title="New Task" onPress={Actions.newbg} />
 
 
             </View>

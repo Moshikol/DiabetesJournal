@@ -169,16 +169,20 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     icon: {
-        height: 20,
-        width: 20,
+        height: 40,
+        width: 40,
     },
     input: {
         flex: 1,
         paddingHorizontal: 10,
+        fontSize:16,
+        color:'#FFF'
     },
     button: {
-        backgroundColor: "#FF3366",
+        backgroundColor: "#29A642",
         paddingVertical: 20,
+        marginLeft:30,
+        marginRight:30,
         alignItems: "center",
         justifyContent: "center",
         marginTop: 30,

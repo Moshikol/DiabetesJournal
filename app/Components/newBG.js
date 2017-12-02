@@ -60,7 +60,7 @@ class NewBG extends Component {
             
             let uploadBlob = null
             let date = moment.unix(moment.now());
-            const imageRef = firebase.storage().ref(currentUser.uid).child(`Bg${date}.jpg`) //check here what to do with the name
+            const imageRef = firebase.storage().ref(currentUser.uid).child(`Bg${date}.jpg`)
             let mime = 'image/jpg'
             //#endregion
 
