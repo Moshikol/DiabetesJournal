@@ -19,9 +19,9 @@ class Bglistitem extends Component {
   }
   render() {
     return (
-      <View>
-        <Card>
-          <CardSection>
+      <View style={{ borderRadius:10}}>
+        <Card style={{ borderRadius:10}}>
+          <CardSection style={{ borderTopLeftRadius:30,borderTopRightRadius:30}}>
             <Text>
               BG value: {this.state.bgVal}
             </Text>
@@ -41,7 +41,7 @@ class Bglistitem extends Component {
               Number of insulin Units: {this.state.insUn}
             </Text>
           </CardSection>
-          <CardSection>
+          <CardSection style={{borderBottomLeftRadius:30,borderBottomRightRadius:30}}>
             <Image source={{ uri: this.state.imgsrc }}
               style={{ width: 150, height: 150, margin: 1, borderRadius: 10 }} />
           </CardSection>

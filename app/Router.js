@@ -12,7 +12,7 @@ const RouterComponent = () => {
                     <Scene key="login" hideNavBar={false} component={LoginForm} title="Please Login" initial />
                 </Stack>
                 <Stack key="BG" hideNavBar>
-                    <Scene key="bglst" hideNavBar={false} component={BglstForm} title="BG Jouranl"  />
+                    <Scene key="bglst" hideNavBar={false} component={BglstForm} title="BG Jouranl" initial />
                     <Scene key="newbg" hideNavBar={false} component={NewBGFrom} title="Add New BG"  />
                 </Stack>
             </Stack>
