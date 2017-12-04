@@ -8,7 +8,7 @@ import {
   View
 } from 'react-native';
 import firebase from 'firebase';
-import {Actions} from'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import Header from './app/Components/header.js';
 import NewBG from './app/Components/newBG.js';
 import LoginForm from './app/Components/LoginForm.js';
@@ -34,19 +34,20 @@ export default class DiabetesJournal extends Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ isLoggedIn: true });
-        Actions.bglst();
+        Actions.BG();
+
       }
       else {
         this.setState({ isLoggedIn: false });
-        Actions.login();
+        Actions.auth();
       }
     });
   };
 
   CompnentSelector(self) {
-    
+
     if (self.state.isLoggedIn) {
-      return(
+      return (
         <View>
           <Header Headertxt={'BG Journal'} />
           <Bglst />
@@ -54,7 +55,7 @@ export default class DiabetesJournal extends Component {
       );
     }
     else {
-      return(
+      return (
         <View>
           <LoginForm />
         </View>
@@ -65,8 +66,8 @@ export default class DiabetesJournal extends Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
-       <Router />
+      <View style={{ flex: 1 }}>
+        <Router />
       </View>
     );
   };
