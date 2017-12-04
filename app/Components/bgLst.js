@@ -28,33 +28,39 @@ class BgList extends Component {
             dataSource: ds
         };
         const { currentUser } = firebase.auth();
-        this.itemsRef = firebase.database().ref(`/users/${currentUser.uid}/Bglst`);
+        if (currentUser) {
+            this.itemsRef = firebase.database().ref(`/users/${currentUser.uid}/Bglst`);
+        }
 
 
     }
     getitems(itemsRef) {
-        itemsRef.on('value', snap => {
-            let items = [];
-            snap.forEach((bg) => {
-                items.push({
-                    bgVal: bg.val().BG.bgVal,
-                    carbsAm: bg.val().BG.carbsAm,
-                    desc: bg.val().BG.desc,
-                    imgsrc: bg.val().BG.imgsrc,
-                    insUn: bg.val().BG.insUn,
-                    _key: bg.key
-                })
+        if (itemsRef) {
+
+            itemsRef.on('value', snap => {
+                let items = [];
+                snap.forEach((bg) => {
+                    items.push({
+                        bgVal: bg.val().BG.bgVal,
+                        carbsAm: bg.val().BG.carbsAm,
+                        desc: bg.val().BG.desc,
+                        imgsrc: bg.val().BG.imgsrc,
+                        insUn: bg.val().BG.insUn,
+                        _key: bg.key
+                    })
+                });
+                this.setState({ dataSource: this.state.dataSource.cloneWithRows(items) });
             });
 
-            this.setState({ dataSource: this.state.dataSource.cloneWithRows(items) });
-        });
+
+        }
     }
 
     componentDidMount() {
         this.getitems(this.itemsRef);
     }
     componentWillMount() {
-        this.getitems(this.itemsRef);
+        //this.getitems(this.itemsRef);
     }
 
     renderItem(item) {
@@ -77,8 +83,8 @@ class BgList extends Component {
                         scrollEnabled={true}
                         dataSource={this.state.dataSource}
                         renderRow={this.renderItem.bind(this)}
-                        style={styles.listview} /> 
-                    <ActionButton buttonColor='#4FEB49'  style={{marginBottom:25,marginRight:-20}} position="right" title="New BG" onPress={Actions.newbg} />
+                        style={styles.listview} />
+                    <ActionButton buttonColor='#4FEB49' style={{ marginBottom: 25, marginRight: -20 }} position="right" title="New BG" onPress={Actions.newbg} />
 
                 </Image>
             </View>
@@ -94,7 +100,7 @@ const styles = {
 
     container: {
         flex: 1,
-        
+
     },
     markWrap: {
         flex: 1,
@@ -171,7 +177,7 @@ const styles = {
     listview:
         {
             borderRadius: 5,
-            marginBottom:50,
+            marginBottom: 50,
             height: 630
         },
     textStyle:
