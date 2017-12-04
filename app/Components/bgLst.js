@@ -15,7 +15,7 @@ import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 import { Icon } from 'react-native-elements';
 import firebase from 'firebase';
 import Bglistitem from './Bglistitem.js';
-const background = require("../Resources/img/login1_bg.png");
+const background = require("../Resources/img/bglst.png");
 const { width, height } = Dimensions.get("window");
 class BgList extends Component {
 
