@@ -31,7 +31,7 @@ class SideMenu extends Component {
                 <Drawer.Header image={<Image source={require('../Resources/img/nav.jpg')} />}>
                     <View style={styles.header}>
 
-                        <Text style={[styles.text, COLOR.paperGrey50, TYPO.paperFontSubhead]}>React Native Material Design</Text>
+                        <Text style={[styles.text, COLOR.paperGrey50]}>Diabetes Jouranl</Text>
                     </View>
                 </Drawer.Header>
 
@@ -47,10 +47,9 @@ class SideMenu extends Component {
                         onPress: () => this.changeScene('avatars'),
                         onLongPress: () => this.changeScene('avatars')
                     }, {
-                        icon: 'label',
-                        value: 'Buttons',
+                        icon: 'list',
+                        value: 'BG History',
                         active: 'buttons',
-                        label: '8',
                         onPress: () => this.changeScene('buttons'),
                         onLongPress: () => this.changeScene('buttons')
                     }, {
@@ -98,7 +97,6 @@ class SideMenu extends Component {
                     items={[{
                         icon: 'invert-colors',
                         value: 'Sign Out',
-                        label: '24',
                         active: 'themes',
                         onPress: () => this.SignOut(),
                         onLongPress: () => this.changeScene('themes')
@@ -141,7 +139,8 @@ const styles = StyleSheet.create({
         paddingTop: 16
     },
     text: {
-        marginTop: 20
+        fontSize:30,
+        marginTop: 80
     }
 
 });
