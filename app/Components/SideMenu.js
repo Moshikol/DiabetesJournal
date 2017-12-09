@@ -42,7 +42,6 @@ class SideMenu extends Component {
                     items={[{
                         icon: 'data-usage',
                         value: 'DashBoard',
-                        label: '14',
                         active: 'avatars',
                         onPress: () => this.changeScene('avatars'),
                         onLongPress: () => this.changeScene('avatars')
