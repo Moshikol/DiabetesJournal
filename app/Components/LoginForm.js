@@ -45,7 +45,7 @@ class LoginForm extends Component {
   }
 
   onLoginFailed() {
-    this.setState({ error: "Password Wrong", loading: false });
+    this.setState({ error: "Password Wrong", loading: false }); //cahnge here the password icon color to red
   }
   onLoginSuccess() {
     Toast.show("You logged in Successfully!", Toast.LONG);

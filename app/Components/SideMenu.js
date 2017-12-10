@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ViewPropTypes, Image } from "react-native";
 import { Actions } from "react-native-router-flux";
 import Button from "react-native-button";
 import { CardSection } from "./common/CardSection";
+import Toast from "react-native-simple-toast";
 import firebase from "firebase";
 import {
   Avatar,
@@ -47,15 +48,15 @@ class SideMenu extends Component {
               icon: "data-usage",
               value: "DashBoard",
               active: "avatars",
-              onPress: () => Actions.dashboard(),
-              onLongPress: () => this.changeScene("avatars")
+              onPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT),
+              onLongPress: () =>  Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             },
             {
               icon: "list",
               value: "BG History",
               active: "buttons",
               onPress: () => Actions.bglst(),
-              onLongPress: () => this.changeScene("buttons")
+              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             },
             {
               icon: "add-location",
@@ -63,40 +64,39 @@ class SideMenu extends Component {
               style: { transform: [{ rotate: "180deg" }] },
               active: "checkboxes",
               onPress: () => Actions.newbg(),
-              onLongPress: () => this.changeScene("checkboxes")
+              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             },
             {
               icon: "add-alarm",
-              value: "Add New Alarm",
+              value: "Add Remainder",
               active: "dividers",
-              onPress: () => this.changeScene("dividers"),
-              onLongPress: () => this.changeScene("dividers")
+              onPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT),
+              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             },
             {
-              icon: "label",
-              value: "Icon Toggles",
-              label: "NEW",
+              icon: "exposure",
+              value: "Bolus Calculator",
               active: "icon-toggles",
-              onPress: () => this.changeScene("icon-toggles"),
-              onLongPress: () => this.changeScene("icon-toggles")
+              onPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT),
+              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             },
-            {
-              icon: "radio-button-checked",
-              value: "Radio Buttons",
-              label: "8",
-              active: "radio-buttons",
-              onPress: () => this.changeScene("radio-buttons"),
-              onLongPress: () => this.changeScene("radio-buttons")
-            },
+            // {
+            //   icon: "radio-button-checked",
+            //   value: "Radio Buttons",
+            //   label: "8",
+            //   active: "radio-buttons",
+            //   onPress: () => this.changeScene("radio-buttons"),
+            //   onLongPress: () => this.changeScene("radio-buttons")
+            // },
 
-            {
-              icon: "label",
-              value: "Subheaders",
-              label: "4",
-              active: "subheaders",
-              onPress: () => this.changeScene("subheaders"),
-              onLongPress: () => this.changeScene("subheaders")
-            }
+            // {
+            //   icon: "label",
+            //   value: "Subheaders",
+            //   label: "4",
+            //   active: "subheaders",
+            //   onPress: () => this.changeScene("subheaders"),
+            //   onLongPress: () => this.changeScene("subheaders")
+            // }
           ]}
         />
         <Divider style={{ marginTop: 8 }} />
@@ -104,11 +104,17 @@ class SideMenu extends Component {
           title="Config"
           items={[
             {
+              icon: "settings",
+              value: "Settings",
+              onPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT),
+              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
+            },
+            {
               icon: "invert-colors",
               value: "Sign Out",
               active: "themes",
               onPress: () => this.SignOut(),
-              onLongPress: () => this.changeScene("themes")
+              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             }
           ]}
         />
