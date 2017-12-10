@@ -8,7 +8,7 @@ import SideMenu from "./Components/SideMenu";
 const RouterComponent = () => {
   return (
     <Router backAndroidHandler={this.onBackPress}>
-      <Stack key="root" hideNavBar>
+      <Stack key="global" hideNavBar>
         <Stack key="auth" hideNavBar>
           <Scene
             key="login"

@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import firebase from "firebase";
 import { Actions } from "react-native-router-flux";
-
+import Toast from "react-native-simple-toast";
 import Header from "./app/Components/header.js";
 import NewBG from "./app/Components/newBG.js";
 import LoginForm from "./app/Components/LoginForm.js";
@@ -19,9 +19,14 @@ import Router from "./app/Router";
 //#endregion
 
 export default class DiabetesJournal extends Component {
-  state = {
-    isLoggedIn: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false,
+      Exitcount: 0
+    };
+  }
+
   componentWillMount() {
     if (!firebase.apps.length) {
       firebase.initializeApp({
@@ -46,15 +51,32 @@ export default class DiabetesJournal extends Component {
   }
 
   componentDidMount() {
-    BackHandler.addEventListener("hardwareBackPress", this.onBackPress);
+    BackHandler.addEventListener(
+      "hardwareBackPress",
+      this.onBackPress.bind(this)
+    );
   }
-  onBackPress () {
+  onBackPress() {
     if (Actions.state.index === 0) {
       return false;
     }
-
-    Actions.pop();
-    return true;
+    if (Actions.currentScene === "_bglst") {
+      this.setState({ Exitcount: this.state.Exitcount + 1 });
+     
+      if (this.state.Exitcount <= 1) {
+        Toast.show("Press One More Time To Exit", Toast.SHORT);
+      }
+      
+      if (this.state.Exitcount > 1) {
+        this.state.Exitcount = 0;
+        return false;
+      }
+      
+    } else {
+      Actions.pop();
+      return true;
+    }
+    return true
   }
 
   CompnentSelector(self) {

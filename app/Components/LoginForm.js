@@ -1,3 +1,4 @@
+//#region Imports
 import React, { Component } from "react";
 import {
   AppRegistry,
@@ -21,12 +22,12 @@ const background = require("../Resources/img/login1_bg.png");
 const mark = require("../Resources/img/login1_mark.png");
 const lockIcon = require("../Resources/img/login1_lock.png");
 const personIcon = require("../Resources/img/login1_person.png");
-
+//#endregion
 class LoginForm extends Component {
   state = { email: "", pass: "", error: "", loading: false, isLoggedIn: false };
 
   onLogin() {
-    if (!isLoggedIn) {
+   
       this.setState({ error: "", loading: true });
       const { email, pass } = this.state;
       firebase
@@ -40,10 +41,7 @@ class LoginForm extends Component {
             .then(this.onRegister.bind(this))
             .catch(this.onLoginFailed.bind(this));
         });
-    }
-    else{
-        Actions.bglst();
-    }
+   
   }
 
   onLoginFailed() {
@@ -100,6 +98,7 @@ class LoginForm extends Component {
               </View>
               <TextInput
                 placeholder="Username"
+                keyboardType="email-address"
                 placeholderTextColor="#FFF"
                 onChangeText={email => this.setState({ email })}
                 value={this.state.email}
