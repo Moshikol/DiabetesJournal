@@ -1,9 +1,10 @@
 import React from "react";
 import { Router, Scene, Stack, ActionConst } from "react-native-router-flux";
 import LoginForm from "./Components/LoginForm";
-import BglstForm from "./Components/bgLst";
-import NewBGFrom from "./Components/newBG";
+import BglstForm from "./Components/BgLst";
+import NewBGFrom from "./Components/NewBG";
 import SideMenu from "./Components/SideMenu";
+import DashBoard from "./Components/DashBoard";
 
 const RouterComponent = () => {
   return (
@@ -34,6 +35,13 @@ const RouterComponent = () => {
               hideNavBar={false}
               component={NewBGFrom}
               title="Add New BG"
+            />
+            <Scene
+              key="dashboard"
+              back
+              hideNavBar={false}
+              component={DashBoard}
+              title="DashBoard"
             />
           </Scene>
         </Stack>

@@ -7,6 +7,9 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"art": "^0.10.1",
+		"d3": "^4.12.0",
+		"d3-shape": "^1.2.0",
 		"firebase": "^4.6.2",
 		"loadash": "^1.0.0",
 		"lodash": "^4.17.4",
@@ -22,6 +25,7 @@
 		"react-native-material-buttons": "^0.5.0",
 		"react-native-material-cards": "^1.0.7",
 		"react-native-material-design": "^0.3.7",
+		"react-native-pie-chart": "^1.0.12",
 		"react-native-router-flux": "^4.0.0-beta.24",
 		"react-native-simple-toast": "0.0.7",
 		"react-native-submit-button": "^1.0.5",

@@ -32,7 +32,8 @@ class NewBG extends Component {
       insUn: "",
       desc: "",
       imgsrc: "",
-      actloading: null
+      actloading: null,
+      datetaken: ""
     };
   }
 

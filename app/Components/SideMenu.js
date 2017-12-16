@@ -48,15 +48,17 @@ class SideMenu extends Component {
               icon: "data-usage",
               value: "DashBoard",
               active: "avatars",
-              onPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT),
-              onLongPress: () =>  Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
+              onPress: () => Actions.dashboard(),
+              onLongPress: () =>
+                Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             },
             {
               icon: "list",
               value: "BG History",
               active: "buttons",
               onPress: () => Actions.bglst(),
-              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
+              onLongPress: () =>
+                Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             },
             {
               icon: "add-location",
@@ -64,22 +66,27 @@ class SideMenu extends Component {
               style: { transform: [{ rotate: "180deg" }] },
               active: "checkboxes",
               onPress: () => Actions.newbg(),
-              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
+              onLongPress: () =>
+                Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             },
             {
               icon: "add-alarm",
               value: "Add Remainder",
               active: "dividers",
-              onPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT),
-              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
+              onPress: () =>
+                Toast.show("Not implemented Yet Sorry :D", Toast.SHORT),
+              onLongPress: () =>
+                Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             },
             {
               icon: "exposure",
               value: "Bolus Calculator",
               active: "icon-toggles",
-              onPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT),
-              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
-            },
+              onPress: () =>
+                Toast.show("Not implemented Yet Sorry :D", Toast.SHORT),
+              onLongPress: () =>
+                Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
+            }
             // {
             //   icon: "radio-button-checked",
             //   value: "Radio Buttons",
@@ -106,15 +113,18 @@ class SideMenu extends Component {
             {
               icon: "settings",
               value: "Settings",
-              onPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT),
-              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
+              onPress: () =>
+                Toast.show("Not implemented Yet Sorry :D", Toast.SHORT),
+              onLongPress: () =>
+                Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             },
             {
               icon: "invert-colors",
               value: "Sign Out",
               active: "themes",
               onPress: () => this.SignOut(),
-              onLongPress: () => Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
+              onLongPress: () =>
+                Toast.show("Not implemented Yet Sorry :D", Toast.SHORT)
             }
           ]}
         />

@@ -11,10 +11,9 @@ import {
 import firebase from "firebase";
 import { Actions } from "react-native-router-flux";
 import Toast from "react-native-simple-toast";
-import Header from "./app/Components/header.js";
-import NewBG from "./app/Components/newBG.js";
-import LoginForm from "./app/Components/LoginForm.js";
-import Bglst from "./app/Components/bgLst.js";
+import NewBG from "./app/Components/NewBG";
+import LoginForm from "./app/Components/LoginForm";
+import Bglst from "./app/Components/BgLst";
 import Router from "./app/Router";
 //#endregion
 
