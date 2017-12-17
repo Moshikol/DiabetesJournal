@@ -1,3 +1,6 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "prettier.jsxBracketSameLine": true,
+    "prettier.printWidth": 100,
+    "prettier.useTabs": true
 }

@@ -42,7 +42,7 @@ class SideMenu extends Component {
         </Drawer.Header>
 
         <Drawer.Section
-          title="Components"
+          title="Pages"
           items={[
             {
               icon: "data-usage",
