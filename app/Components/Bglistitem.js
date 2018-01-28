@@ -12,78 +12,69 @@ class Bglistitem extends Component {
 			carbsAm: this.props.BG.carbsAm,
 			insUn: this.props.BG.insUn,
 			desc: this.props.BG.desc,
-			imgsrc: this.props.BG.imgsrc
+			imgsrc: this.props.BG.imgsrc,
+			datetaken: this.props.BG.datetaken
 		};
 	}
 
 	render() {
 		return (
 			<View
-				name="GlobalView"
 				style={{
-					flexDirection: "row",
+					flexDirection: "column",
 					backgroundColor: "#FFFFFF",
 					borderBottomWidth: 0.5,
-					borderColor: "grey"
+					borderColor: "grey",
+					marginTop: 10
 				}}>
+				<Text style={styles.dateStyle}> {this.state.datetaken}</Text>
+
 				<View
-					name="ColumnViewLeft"
+					name="GlobalView"
 					style={{
-						marginRight: 10,
-						flexDirection: "column"
+						flexDirection: "row",
+						backgroundColor: "#FFFFFF",
+						borderBottomWidth: 0.5,
+						borderColor: "grey",
+						alignItems: "center"
 					}}>
-					<View
-						name="BgValueView"
-						style={{
-							margin: 5,
-							flexDirection: "row"
-						}}>
-						<Icon name="opacity" color="red" size={20} />
-						<Text style={{ fontSize: 14, marginTop: 7 }}> {this.state.bgVal} ml/dl</Text>
-					</View>
+					<View style={{ flexDirection: "row", marginVertical: 10 }}>
+						<View name="ColumnViewLeft" style={styles.ViewColumnStyle}>
+							<View name="BgValueView" style={styles.ViewRowStyle}>
+								<Icon name="opacity" color="red" size={20} style={{ marginRight: -5 }} />
+								<Text style={styles.labelStyle}> {this.state.bgVal} ml/dl</Text>
+							</View>
 
-					<View
-						name="CarbsAmntView"
-						style={{
-							margin: 5,
-							flexDirection: "row"
-						}}>
-						<Icon name="local-dining" color="grey" size={20} />
-						<Text>{this.state.carbsAm} /gr</Text>
+							<View name="CarbsAmntView" style={styles.ViewRowStyle}>
+								<Icon name="local-dining" color="grey" size={20} />
+								<Text style={styles.labelStyle}>{this.state.carbsAm} /gr</Text>
+							</View>
+						</View>
+
+						<View name="ColumnViewRight" style={styles.ViewColumnStyle}>
+							<View name="InsulinUView" style={styles.ViewRowStyle}>
+								<Icon name="colorize" color="grey" size={20} />
+								<Text style={styles.labelStyle}>{this.state.insUn}U</Text>
+							</View>
+							<View name="Decriptionview" style={styles.ViewRowStyle}>
+								<Icon name="help" color="grey" size={20} />
+								{/* <Text>{this.state.desc}</Text> */}
+							</View>
+						</View>
+						<View name="ImageView">
+							<Image
+								style={{
+									width: 45,
+									height: 45,
+									left: 50,
+									borderRadius: 100,
+									alignSelf: "flex-end"
+								}}
+								source={{ uri: this.state.imgsrc }}
+							/>
+						</View>
 					</View>
 				</View>
-
-				<View name='ColumnViewRight' style={{ marginRight: 10, flexDirection: "column" }}>
-					<View name='InsulinUView'
-						style={{
-							flexDirection: "row",
-							marginRight: 10,
-							marginTop: 10
-						}}>
-						<Icon name="colorize" color="grey" size={20} />
-						<Text>{this.state.insUn}U</Text>
-					</View>
-					<View name='Decriptionview'
-						style={{
-							margin: 10,
-							flexDirection: "row"
-						}}>
-						<Icon name="help" color="grey" size={20} />
-						{/* <Text>{this.state.desc}</Text> */}
-					</View>
-				</View>
-
-				<Image
-					style={{
-						width: 60,
-						height: 60,
-						position: "relative",
-						marginVertical: 10,
-						borderRadius: 100,
-						alignSelf: "flex-end"
-					}}
-					source={{ uri: this.state.imgsrc }}
-				/>
 			</View>
 		);
 	}
@@ -103,5 +94,27 @@ const styles = {
 		marginLeft: 5,
 		marginRight: 5,
 		marginTop: 10
+	},
+
+	labelStyle: {
+		fontSize: 18,
+		marginLeft: 2
+	},
+	dateStyle: {
+		alignSelf: "center", 
+		fontSize: 12,
+		marginLeft: 2,
+		marginTop: 10
+	},
+	ViewRowStyle: {
+		alignItems: "center",
+		flexDirection: "row"
+	},
+	ViewRowStyle: {
+		flexDirection: "row"
+	},
+	ViewColumnStyle: {
+		paddingLeft: 10,
+		flexDirection: "column"
 	}
 };

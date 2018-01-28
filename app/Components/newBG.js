@@ -33,14 +33,15 @@ class NewBG extends Component {
 			desc: "",
 			imgsrc: "",
 			actloading: null,
-			datetaken: ""
+			datetaken: moment().format('D/M/YY, HH:mm')
 		};
 	}
 
 	//#region Functions
 	//Save to db
 	SaveBG() {
-		const BG = ({ bgVal, carbsAm, insUn, desc, imgsrc } = this.state);
+		
+		const BG = ({ bgVal, carbsAm, insUn, desc, imgsrc ,datetaken } = this.state);
 		const { currentUser } = firebase.auth();
 		firebase
 			.database()
