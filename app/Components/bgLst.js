@@ -20,6 +20,7 @@ import { TextButton, RaisedTextButton } from "react-native-material-buttons";
 import { Icon } from "react-native-elements";
 import firebase from "firebase";
 import Bglistitem from "./Bglistitem.js";
+import PopupDialog, { DialogTitle } from "react-native-popup-dialog";
 
 const background = require("../Resources/img/bglst.png");
 const { width, height } = Dimensions.get("window");
@@ -64,7 +65,8 @@ class BgList extends Component {
 		this.getitems(this.itemsRef);
 	}
 	componentWillMount() {
-		//this.getitems(this.itemsRef);
+    //this.getitems(this.itemsRef);
+    
 	}
 
 	renderItem(item) {
@@ -78,6 +80,7 @@ class BgList extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
+				
 				<Image source={background} style={styles.background} resizeMode="cover">
 					<ListView
 						enableEmptySections

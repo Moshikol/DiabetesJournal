@@ -21,6 +21,7 @@ import RNFetchBlob from "react-native-fetch-blob";
 import moment from "moment";
 const background = require("../Resources/img/bglst.png");
 const { width, height } = Dimensions.get("window");
+import PopupDialog, { DialogTitle } from "react-native-popup-dialog";
 //#endregion
 
 class NewBG extends Component {
@@ -33,15 +34,14 @@ class NewBG extends Component {
 			desc: "",
 			imgsrc: "",
 			actloading: null,
-			datetaken: moment().format('D/M/YY, HH:mm')
+			datetaken: moment().format("D/M/YY, HH:mm")
 		};
 	}
 
 	//#region Functions
 	//Save to db
 	SaveBG() {
-		
-		const BG = ({ bgVal, carbsAm, insUn, desc, imgsrc ,datetaken } = this.state);
+		const BG = ({ bgVal, carbsAm, insUn, desc, imgsrc, datetaken } = this.state);
 		const { currentUser } = firebase.auth();
 		firebase
 			.database()
@@ -64,7 +64,8 @@ class NewBG extends Component {
 	}
 	//Opens link Carbs Help
 	HelpCarbs() {
-		Linking.openURL("http://www.foodsdictionary.co.il");
+		//Linking.openURL("http://www.foodsdictionary.co.il");
+		this.popupDialog.show();
 	}
 
 	//Open Camera/Gallery and upload picture to FireBase
@@ -140,6 +141,15 @@ class NewBG extends Component {
 		const { textStyle, viewStyle, buttonStyle } = styles;
 		return (
 			<View style={{ justifyContent: "flex-start" }}>
+				<PopupDialog
+					dialogTitle={<DialogTitle title="Dialog Title" />}
+					ref={popupDialog => {
+						this.popupDialog = popupDialog;
+					}}>
+					<View>
+						<Text>Hello</Text>
+					</View>
+				</PopupDialog>
 				<Image source={background} style={styles.background} resizeMode="cover">
 					<TextInput
 						keyboardType={"numeric"}

@@ -26,6 +26,7 @@
 		"react-native-material-cards": "^1.0.7",
 		"react-native-material-design": "^0.3.7",
 		"react-native-pie-chart": "^1.0.12",
+		"react-native-popup-dialog": "^0.10.46",
 		"react-native-router-flux": "^4.0.0-beta.24",
 		"react-native-simple-toast": "0.0.7",
 		"react-native-submit-button": "^1.0.5",
