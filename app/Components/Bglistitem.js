@@ -1,16 +1,10 @@
 import React, { Component } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
-//import { CardAction, Card } from './common';
 import { Icon, Button } from "react-native-elements";
 import { Right } from "native-base";
-import PopupDialog, {
-	DialogTitle,
-	DialogButton,
-	SlideAnimation,
-	ScaleAnimation,
-	FadeAnimation
-} from "react-native-popup-dialog";
-import Bglst from "./BgLst"
+import PopupDialog, { DialogTitle, DialogButton, SlideAnimation, ScaleAnimation, FadeAnimation } from "react-native-popup-dialog";
+import Bglst from "./BgLst";
+import FastImage from 'react-native-fast-image'
 const slideAnimation = new SlideAnimation({ slideFrom: "bottom" });
 const scaleAnimation = new ScaleAnimation();
 const fadeAnimation = new FadeAnimation({ animationDuration: 150 });
@@ -26,11 +20,10 @@ class Bglistitem extends Component {
 			imgsrc: this.props.BG.imgsrc,
 			datetaken: this.props.BG.datetaken
 		};
-		
 	}
 
 	OpenPopUp() {
-		this.props.showPopUp(this.state)
+		this.props.showPopUp(this.state);
 	}
 	render() {
 		return (
@@ -42,8 +35,6 @@ class Bglistitem extends Component {
 					borderColor: "grey",
 					marginTop: 10
 				}}>
-				
-
 				<TouchableOpacity onPress={this.OpenPopUp.bind(this)}>
 					<Text style={styles.dateStyle}> {this.state.datetaken}</Text>
 					<View

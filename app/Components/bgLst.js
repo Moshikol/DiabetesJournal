@@ -1,17 +1,6 @@
 import _ from "lodash";
 import React, { Component } from "react";
-import {
-	Text,
-	View,
-	Alert,
-	TextInput,
-	Linking,
-	Dimensions,
-	Button,
-	Image,
-	TouchableOpacity,
-	ListView
-} from "react-native";
+import { Text, View, Alert, TextInput, Linking, Dimensions, Button, Image, TouchableOpacity, ListView } from "react-native";
 import SubmitButton from "react-native-submit-button";
 import Toast from "react-native-simple-toast";
 import ActionButton from "react-native-action-button";
@@ -21,6 +10,8 @@ import { Icon } from "react-native-elements";
 import firebase from "firebase";
 import Bglistitem from "./Bglistitem.js";
 import PopupDialog, { DialogTitle } from "react-native-popup-dialog";
+import FastImage from "react-native-fast-image";
+import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from "react-native-material-cards";
 
 const background = require("../Resources/img/bglst.png");
 const { width, height } = Dimensions.get("window");
@@ -69,7 +60,7 @@ class BgList extends Component {
 		//this.getitems(this.itemsRef);
 	}
 	showItemPopUp(BG) {
-		this.setState({itemBG:BG})
+		this.setState({ itemBG: BG });
 		this.popupDialog.show();
 	}
 
@@ -85,15 +76,21 @@ class BgList extends Component {
 		return (
 			<View style={styles.container}>
 				<PopupDialog
-					dialogTitle={<DialogTitle title="Blood Glucose Details" />}
+					// {this.state.itemBG.datetaken}
+					dialogTitle={<DialogTitle title={`${this.state.itemBG.datetaken} Blood Glucose Details` } />}
 					ref={popupDialog => {
 						this.popupDialog = popupDialog;
 					}}>
-					<View>
-						<Text>{this.state.itemBG.desc}</Text>
-						<Text>{this.state.itemBG.bgVal}</Text>
-						<Text>{this.state.itemBG.carbsAm}</Text>
-						<Text>test</Text>
+					<View style={{ borderRadius: 5 }}>
+						<FastImage
+							style={{borderRadius: 5, height: 100, width: 100 }}
+							resizeMode={FastImage.resizeMode.stretch}
+							source={{ uri: this.state.itemBG.imgsrc, priority: FastImage.priority.normal }}
+						/>
+						<Text style={{ borderBottomWidth: 0.5, borderColor: "grey" }}> BG value: {this.state.itemBG.bgVal} </Text>
+						<Text style={{ borderBottomWidth: 0.5, borderColor: "grey" }}> Amount of carbs: {this.state.itemBG.carbsAm}</Text>
+						<Text style={{ borderBottomWidth: 0.5, borderColor: "grey" }}> Number of insulin Units: {this.state.itemBG.insUn}</Text>
+						<Text style={{ borderBottomWidth: 0.5, borderColor: "grey" }}> Description of the meal: {this.state.itemBG.desc}</Text>
 					</View>
 				</PopupDialog>
 
