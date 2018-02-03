@@ -65,7 +65,7 @@ class NewBG extends Component {
 	//Opens link Carbs Help
 	HelpCarbs() {
 		//Linking.openURL("http://www.foodsdictionary.co.il");
-		this.popupDialog.show();
+	
 	}
 
 	//Open Camera/Gallery and upload picture to FireBase
@@ -141,15 +141,6 @@ class NewBG extends Component {
 		const { textStyle, viewStyle, buttonStyle } = styles;
 		return (
 			<View style={{ justifyContent: "flex-start" }}>
-				<PopupDialog
-					dialogTitle={<DialogTitle title="Dialog Title" />}
-					ref={popupDialog => {
-						this.popupDialog = popupDialog;
-					}}>
-					<View>
-						<Text>Hello</Text>
-					</View>
-				</PopupDialog>
 				<Image source={background} style={styles.background} resizeMode="cover">
 					<TextInput
 						keyboardType={"numeric"}

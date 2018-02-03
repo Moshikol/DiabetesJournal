@@ -10,7 +10,7 @@ import PopupDialog, {
 	ScaleAnimation,
 	FadeAnimation
 } from "react-native-popup-dialog";
-
+import Bglst from "./BgLst"
 const slideAnimation = new SlideAnimation({ slideFrom: "bottom" });
 const scaleAnimation = new ScaleAnimation();
 const fadeAnimation = new FadeAnimation({ animationDuration: 150 });
@@ -26,10 +26,11 @@ class Bglistitem extends Component {
 			imgsrc: this.props.BG.imgsrc,
 			datetaken: this.props.BG.datetaken
 		};
+		
 	}
 
 	OpenPopUp() {
-		this.popupDialog.show();
+		this.props.showPopUp(this.state)
 	}
 	render() {
 		return (

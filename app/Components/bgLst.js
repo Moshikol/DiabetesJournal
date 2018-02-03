@@ -32,7 +32,8 @@ class BgList extends Component {
 			rowHasChanged: (row1, row2) => row1 !== row2
 		});
 		this.state = {
-			dataSource: ds
+			dataSource: ds,
+			itemBG: {}
 		};
 		const { currentUser } = firebase.auth();
 		if (currentUser) {
@@ -65,14 +66,17 @@ class BgList extends Component {
 		this.getitems(this.itemsRef);
 	}
 	componentWillMount() {
-    //this.getitems(this.itemsRef);
-    
+		//this.getitems(this.itemsRef);
+	}
+	showItemPopUp(BG) {
+		this.setState({itemBG:BG})
+		this.popupDialog.show();
 	}
 
 	renderItem(item) {
 		return (
 			<View>
-				<Bglistitem BG={item} />
+				<Bglistitem BG={item} showPopUp={this.showItemPopUp.bind(this)} />
 			</View>
 		);
 	}
@@ -80,7 +84,19 @@ class BgList extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				
+				<PopupDialog
+					dialogTitle={<DialogTitle title="Blood Glucose Details" />}
+					ref={popupDialog => {
+						this.popupDialog = popupDialog;
+					}}>
+					<View>
+						<Text>{this.state.itemBG.desc}</Text>
+						<Text>{this.state.itemBG.bgVal}</Text>
+						<Text>{this.state.itemBG.carbsAm}</Text>
+						<Text>test</Text>
+					</View>
+				</PopupDialog>
+
 				<Image source={background} style={styles.background} resizeMode="cover">
 					<ListView
 						enableEmptySections
