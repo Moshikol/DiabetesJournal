@@ -64,6 +64,7 @@
 		D9743E76CD2F430B93C5D4DD /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB87B36C081454F986A2CA1 /* SimpleLineIcons.ttf */; };
 		023D4B41D39F41B29BCBC064 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7F63B1B3804459687701C0C /* Zocial.ttf */; };
 		7F200BF6B02E44E18B6E399E /* libFastImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 692902AA11614776B60042CF /* libFastImage.a */; };
+		80BFE3A9527D45F7BBFCBB9F /* libNeuraRN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAEA8F72975046798F66169D /* libNeuraRN.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -324,6 +325,8 @@
 		A7F63B1B3804459687701C0C /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		A52A2689A5F44C41AD8FDEAC /* FastImage.xcodeproj */ = {isa = PBXFileReference; name = "FastImage.xcodeproj"; path = "../node_modules/react-native-fast-image/ios/FastImage.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		692902AA11614776B60042CF /* libFastImage.a */ = {isa = PBXFileReference; name = "libFastImage.a"; path = "libFastImage.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		D7D196D8383E4890AAABB561 /* NeuraRN.xcodeproj */ = {isa = PBXFileReference; name = "NeuraRN.xcodeproj"; path = "../node_modules/react_native_sample_app/ios/NeuraRN.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		CAEA8F72975046798F66169D /* libNeuraRN.a */ = {isa = PBXFileReference; name = "libNeuraRN.a"; path = "libNeuraRN.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +360,7 @@
 				D3CC5137902D4C32B43EE2B8 /* libLRDRCTSimpleToast.a in Frameworks */,
 				A6056C54E6DD425F981B9751 /* libRNVectorIcons.a in Frameworks */,
 				7F200BF6B02E44E18B6E399E /* libFastImage.a in Frameworks */,
+				80BFE3A9527D45F7BBFCBB9F /* libNeuraRN.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +534,7 @@
 				2E242617CBD4485A92BC04EB /* LRDRCTSimpleToast.xcodeproj */,
 				96F1A8683BAF445F8536BE4B /* RNVectorIcons.xcodeproj */,
 				A52A2689A5F44C41AD8FDEAC /* FastImage.xcodeproj */,
+				D7D196D8383E4890AAABB561 /* NeuraRN.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1137,6 +1142,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1145,6 +1151,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
+					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
 				);
 			};
 			name = Debug;
@@ -1170,6 +1177,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1178,6 +1186,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
+					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
 				);
 			};
 			name = Release;
@@ -1204,6 +1213,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
+					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
 				);
 			};
 			name = Debug;
@@ -1229,6 +1239,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
+					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
 				);
 			};
 			name = Release;
@@ -1263,6 +1274,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1271,6 +1283,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
+					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
 				);
 			};
 			name = Debug;
@@ -1305,6 +1318,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1313,6 +1327,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-simple-toast\ios\LRDRCTSimpleToast",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
+					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
 				);
 			};
 			name = Release;
@@ -1342,6 +1357,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1366,6 +1382,7 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
