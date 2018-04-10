@@ -65,6 +65,7 @@
 		023D4B41D39F41B29BCBC064 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7F63B1B3804459687701C0C /* Zocial.ttf */; };
 		7F200BF6B02E44E18B6E399E /* libFastImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 692902AA11614776B60042CF /* libFastImage.a */; };
 		80BFE3A9527D45F7BBFCBB9F /* libNeuraRN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAEA8F72975046798F66169D /* libNeuraRN.a */; };
+		6FB87BE8849D446A86092CA8 /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C6EE42BD4345F5AFA79C67 /* libRNFIRMessaging.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -327,6 +328,8 @@
 		692902AA11614776B60042CF /* libFastImage.a */ = {isa = PBXFileReference; name = "libFastImage.a"; path = "libFastImage.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		D7D196D8383E4890AAABB561 /* NeuraRN.xcodeproj */ = {isa = PBXFileReference; name = "NeuraRN.xcodeproj"; path = "../node_modules/react_native_sample_app/ios/NeuraRN.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		CAEA8F72975046798F66169D /* libNeuraRN.a */ = {isa = PBXFileReference; name = "libNeuraRN.a"; path = "libNeuraRN.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		AAA7B140E56E4EAC93272D0E /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; name = "RNFIRMessaging.xcodeproj"; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		F7C6EE42BD4345F5AFA79C67 /* libRNFIRMessaging.a */ = {isa = PBXFileReference; name = "libRNFIRMessaging.a"; path = "libRNFIRMessaging.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +364,7 @@
 				A6056C54E6DD425F981B9751 /* libRNVectorIcons.a in Frameworks */,
 				7F200BF6B02E44E18B6E399E /* libFastImage.a in Frameworks */,
 				80BFE3A9527D45F7BBFCBB9F /* libNeuraRN.a in Frameworks */,
+				6FB87BE8849D446A86092CA8 /* libRNFIRMessaging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +539,7 @@
 				96F1A8683BAF445F8536BE4B /* RNVectorIcons.xcodeproj */,
 				A52A2689A5F44C41AD8FDEAC /* FastImage.xcodeproj */,
 				D7D196D8383E4890AAABB561 /* NeuraRN.xcodeproj */,
+				AAA7B140E56E4EAC93272D0E /* RNFIRMessaging.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1143,6 +1148,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1152,6 +1158,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
+					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 				);
 			};
 			name = Debug;
@@ -1178,6 +1185,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1187,6 +1195,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
+					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 				);
 			};
 			name = Release;
@@ -1214,6 +1223,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
+					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 				);
 			};
 			name = Debug;
@@ -1240,6 +1250,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
+					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 				);
 			};
 			name = Release;
@@ -1275,6 +1286,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1284,6 +1296,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
+					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 				);
 			};
 			name = Debug;
@@ -1319,6 +1332,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1328,6 +1342,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-fast-image\ios\FastImage/**",
 					"$(SRCROOT)\..\node_modules\react_native_sample_app\ios\NeuraSDKManager",
+					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 				);
 			};
 			name = Release;
@@ -1358,6 +1373,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1382,6 +1398,7 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "750281915622",
+    "firebase_url": "https://diabetesjournal-405cf.firebaseio.com",
+    "project_id": "diabetesjournal-405cf",
+    "storage_bucket": "diabetesjournal-405cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:750281915622:android:00e5dbd5b2161066",
+        "android_client_info": {
+          "package_name": "com.diabetesjournal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "750281915622-l8cjh0gc6cmcet1t5r35e8cguolbjcpi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diabetesjournal",
+            "certificate_hash": "55ca47bf61b5f2e0007c1ad794f317afaeaeb122"
+          }
+        },
+        {
+          "client_id": "750281915622-t5e263k9dd5mlpbmep9rqj40k1gvmi38.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxkmtKu0MEOT8qe1__cLwsdYAYhyg30rM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "750281915622-t5e263k9dd5mlpbmep9rqj40k1gvmi38.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
