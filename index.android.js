@@ -8,7 +8,6 @@ import NewBG from "./app/Components/NewBG";
 import LoginForm from "./app/Components/LoginForm";
 import Bglst from "./app/Components/BgLst";
 import Router from "./app/Router";
-import Neura from "react_native_sample_app";
 //#endregion
 
 export default class DiabetesJournal extends Component {
